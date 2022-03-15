@@ -15,21 +15,21 @@ public class CSVService {
 
   public void save(MultipartFile file) {
     try {
-      List<Atrativo> tutorials = CSVHelper.csvToTutorials(file.getInputStream());
-      repository.saveAll(tutorials);
+      List<Atrativo> atrativos = CSVHelper.csvToTutorials(file.getInputStream());
+      repository.saveAll(atrativos);
     } catch (IOException e) {
       throw new RuntimeException("falha ao armazenar dados csv: " + e.getMessage());
     }
   }
 
   public ByteArrayInputStream load() {
-    List<Atrativo> tutorials = repository.findAll();
+    List<Atrativo> atrativos = repository.findAll();
 
-    ByteArrayInputStream in = CSVHelper.tutorialsToCSV(tutorials);
+    ByteArrayInputStream in = CSVHelper.tutorialsToCSV(atrativos);
     return in;
   }
 
-  public List<Atrativo> getAllTutorials() {
+  public List<Atrativo> getAllAtrativos() {
     return repository.findAll();
   }
 }

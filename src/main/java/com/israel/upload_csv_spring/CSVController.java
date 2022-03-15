@@ -44,7 +44,7 @@ public class CSVController {
 
         return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message,fileDownloadUri));
       } catch (Exception e) {
-        message = "Não foi possível fazer upload do arquivo: " + file.getOriginalFilename() + "!";
+        message = "Não foi possível fazer upload do arquivo, verifique o arquivo csv: " + file.getOriginalFilename() + "!";
         return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message,""));
       }
     }
@@ -53,16 +53,16 @@ public class CSVController {
     return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(message,""));
   }
 
-  @GetMapping("/tutorials")
-  public ResponseEntity<List<Atrativo>> getAllTutorials() {
+  @GetMapping("/atrativos")
+  public ResponseEntity<List<Atrativo>> getAllAtrativos() {
     try {
-      List<Atrativo> tutorials = fileService.getAllTutorials();
+      List<Atrativo> atrativos = fileService.getAllAtrativos();
 
-      if (tutorials.isEmpty()) {
+      if (atrativos.isEmpty()) {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
       }
 
-      return new ResponseEntity<>(tutorials, HttpStatus.OK);
+      return new ResponseEntity<>(atrativos, HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
     }
