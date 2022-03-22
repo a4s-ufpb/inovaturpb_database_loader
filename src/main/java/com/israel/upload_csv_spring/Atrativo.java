@@ -1,9 +1,12 @@
 package com.israel.upload_csv_spring;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Entity
 @Table(name = "atrativos")
@@ -20,13 +23,12 @@ public class Atrativo {
 	  private String email;
 
 	  @Column(name = "data_hora")
-	  private String dataHora;
+	  private Date dataHora;
 
-	  public Atrativo() {
+	public Atrativo() {
+	}
 
-	  }
-
-	public Atrativo(long id, String nome, String email, String dataHora) {
+	public Atrativo(long id, String nome, String email, Date dataHora) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
@@ -57,11 +59,11 @@ public class Atrativo {
 		this.email = email;
 	}
 
-	public String getDataHora() {
+	public Date getDataHora() {
 		return dataHora;
 	}
 
-	public void setDataHora(String dataHora) {
+	public void setDataHora(Date dataHora) {
 		this.dataHora = dataHora;
 	}
 }

@@ -44,7 +44,8 @@ public class CSVController {
 
         return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message,fileDownloadUri));
       } catch (Exception e) {
-        message = "Não foi possível fazer upload do arquivo, verifique o arquivo csv: " + file.getOriginalFilename() + "!";
+        e.printStackTrace();
+        message = e.getMessage();
         return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message,""));
       }
     }
