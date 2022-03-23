@@ -1,31 +1,50 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-        <title>Spring Boot CSV file Application</title>
-        <link rel="stylesheet" href="/css/main.css" />
-    </head>
-    <body>
-      
-        <div class="upload-container">
-            <div class="upload-header">
-                <h2>Importe o arquivo CSV para o banco de dados</h2>
-            </div>
-            <div class="upload-content">
-                <div class="single-upload">
-                    <h3>Carregar o arquivo CSV</h3>
-                    <form id="singleUploadForm" name="singleUploadForm">
-                        <input id="singleFileUploadInput" type="file" name="file" class="file-input" required />
-                        <button type="submit" class="primary submit-btn">Enviar</button>
-                    </form>
-                    <div class="upload-response">
-                        <div id="singleFileUploadError"></div>
-                        <div id="singleFileUploadSuccess"></div>
-                    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <title>Spring Boot CSV file Application</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link href="/static/fontawesome-free-6.1.0-web/css/all.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+    <div class="upload-container">
+        <div class="upload-header">
+            <h2>Envie seu arquivo <strong>CSV</strong>!</h2>
+        </div>
+        <div class="upload-content">
+            <div class="single-upload">
+                <h3>
+                    Clique no botão <span>Selecionar um Arquivo</span> para selecionar
+                    seu csv, logo em seguida clique no botão
+                    <span>Enviar meu Arquivo</span>, que seu csv será enviado
+                    automaticamente para o nosso banco de dados.
+                </h3>
+                <form id="singleUploadForm" name="singleUploadForm">
+                    <label for="singleFileUploadInput"
+                    >Selecionar um arquivo
+                        <img src="/arrow.svg"></label>
+                    <input
+                            id="singleFileUploadInput"
+                            type="file"
+                            name="file"
+                            class="file-input"
+                            required
+                    />
+                    <button type="submit" class="primary submit-btn">
+                        Enviar meu Arquivo
+                    </button>
+                </form>
+                <div class="upload-response">
+                    <div id="singleFileUploadError"></div>
+                    <div id="singleFileUploadSuccess"></div>
                 </div>
-               
             </div>
         </div>
-        <script src="/js/main.js" ></script>
-    </body>
+    </div>
+</div>
+<script src="/js/main.js"></script>
+</body>
 </html>
