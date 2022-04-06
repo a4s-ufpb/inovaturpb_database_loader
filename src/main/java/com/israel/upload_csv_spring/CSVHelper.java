@@ -18,6 +18,7 @@ public class CSVHelper {
   public static String TYPE = "text/csv";
   static String[] HEADERs =  { "Id", "Nome_Atrativo", "E-mail", "Data/Hora"};
 
+  // É usado para verificar se o formato do arquivo é CSV ou não.
   public static boolean hasCSVFormat(MultipartFile file) {
     if (TYPE.equals(file.getContentType())
     		|| file.getContentType().equals("application/vnd.ms-excel")) {
@@ -27,6 +28,7 @@ public class CSVHelper {
     return false;
   }
 
+  //Este método é totalmente usado para ler os dados do arquivo CSV.
   public static List<Atrativo> csvToTutorials(InputStream is) {
 
 
@@ -57,6 +59,7 @@ public class CSVHelper {
     }
   }
 
+  //Este método é usado para gravar os dados no arquivo CSV da tabela do banco de dados MySQL.
   public static ByteArrayInputStream tutorialsToCSV(List<Atrativo> atrativoList) {
     final CSVFormat format = CSVFormat.DEFAULT.withQuoteMode(QuoteMode.MINIMAL);
 

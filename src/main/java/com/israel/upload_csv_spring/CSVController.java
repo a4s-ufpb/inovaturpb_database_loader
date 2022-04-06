@@ -18,7 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
+//Nesta classe é onde definirmos todos os endpoints ou API para fazer
+//upload, download, leitura e gravar os dados do arquivo CSV.
 @CrossOrigin("http://localhost:8080")
 @Controller
 @RequestMapping("/api/csv")
@@ -27,6 +28,7 @@ public class CSVController {
   @Autowired
   CSVService fileService;
 
+  //Usado para fazer upload do arquivo.
   @PostMapping("/upload")
   public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
     String message = "";
@@ -54,6 +56,7 @@ public class CSVController {
     return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(message,""));
   }
 
+  //Usado para obter toda a lista de tutoriais do desenvolvedor do banco de dados.
   @GetMapping("/atrativos")
   public ResponseEntity<List<Atrativo>> getAllAtrativos() {
     try {
@@ -69,6 +72,7 @@ public class CSVController {
     }
   }
 
+  //Usado para baixar o arquivo CSV.
   @GetMapping("/download/{fileName:.+}")
   public ResponseEntity<Resource> downloadFile(@PathVariable String fileName) {
     InputStreamResource file = new InputStreamResource(fileService.load());

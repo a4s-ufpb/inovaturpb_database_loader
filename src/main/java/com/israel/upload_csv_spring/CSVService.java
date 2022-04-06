@@ -13,6 +13,7 @@ public class CSVService {
   @Autowired
   AtrativoRepository repository;
 
+  //Salva os dados do arquivo CSV no banco de dados.
   public void save(MultipartFile file) {
     try {
       List<Atrativo> atrativos = CSVHelper.csvToTutorials(file.getInputStream());
@@ -22,6 +23,7 @@ public class CSVService {
     }
   }
 
+  //Vai ler os dados do banco de dados e retornará na forma de ByteArrayInputStream.
   public ByteArrayInputStream load() {
     List<Atrativo> atrativos = repository.findAll();
 
@@ -29,6 +31,7 @@ public class CSVService {
     return in;
   }
 
+  //Ler os dados do banco de dados e retornará a Lista de Atrativos.
   public List<Atrativo> getAllAtrativos() {
     return repository.findAll();
   }
